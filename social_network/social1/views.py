@@ -3,4 +3,4 @@ from django.shortcuts import render
 
 # Create your views here.
 def index(request):
-    return HttpResponse("Welcome to Django.<br>Again. ))")
+    return HttpResponse("Welcome to Django.<br>Again.")
