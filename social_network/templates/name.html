@@ -1,0 +1,42 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'social1/style.css' %}">
+</head>
+
+<body>
+    <h2>Welcome, {{name}}!</h2>
+    <hr>
+    <br>
+    <a href="{% url 'social1_index' %}">Main page</a>
+    <br>
+    <br>
+    <i>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit consequatur hic, voluptatum commodi doloribus architecto maiores sequi repudiandae, eligendi aperiam sunt reiciendis obcaecati accusamus adipisci molestiae quas nisi vel harum?
+    Laboriosam voluptates enim, sed accusamus quibusdam consequuntur consequatur quae perspiciatis quos ut placeat qui quia vel vero dolorem veniam omnis dignissimos molestias, eos quidem quaerat impedit est? Minus, quisquam tenetur?
+    Dolorum doloribus, fugit facilis excepturi impedit ullam illum possimus nobis dignissimos, commodi voluptate atque, earum vel dolor debitis culpa molestiae? Est veritatis voluptatem deserunt quam laboriosam officia fugit optio delectus?
+    Dignissimos doloremque necessitatibus animi! Rem perspiciatis alias modi nulla dolorum qui deserunt nihil nisi facilis ipsum quia beatae unde iusto debitis dolores ea, accusamus tempore tenetur. Vel, possimus sint! Commodi.
+    Quia eligendi officia corrupti, ipsa, nemo eos asperiores quibusdam voluptatem facere accusantium, soluta nam accusamus iste? Adipisci mollitia, suscipit rerum accusamus nihil error sunt consequatur non quia assumenda, quae corrupti.
+    Dolores sapiente soluta doloremque, unde modi quidem atque nam, impedit adipisci repellendus veniam molestiae! Mollitia iusto, impedit quod necessitatibus perferendis tenetur ratione, voluptatibus temporibus facilis nulla unde repellendus vero consequuntur.
+    Id itaque aliquam modi. Sapiente, aspernatur. Facere quidem veritatis aut quisquam vitae blanditiis minus voluptatem libero, error, omnis quam, maxime explicabo harum sapiente commodi aliquam accusamus fuga maiores fugiat eius!
+    In pariatur eaque optio sapiente tempore vel eligendi iste blanditiis excepturi ipsa, aperiam vitae ad illum dolor veniam eos dicta expedita amet ab aut aliquam qui libero nisi autem! Sunt.
+    Velit soluta consequuntur quisquam doloribus iusto sint laudantium at, maiores molestias mollitia excepturi optio illo corrupti reprehenderit praesentium voluptate dolores consectetur quaerat aliquid. Corporis temporibus debitis, veritatis corrupti inventore ab.
+    Adipisci culpa eaque et dolorum numquam, tempore exercitationem vel soluta alias totam molestias. Sunt, quae vel dolor doloribus itaque aliquam unde delectus accusantium rem earum est libero excepturi, ea eaque!
+    </i>
+    <br>
+    <br>
+    <form action="#">
+        <input type="radio" name="myradio1" id="myidradio1" value="rad1"> Some text
+        <input type="radio" name="myradio2" id="myidradio2"> Text two
+        <input type="text" name="textinput" id="textinputid" value="Hello">
+        <input type="submit" value="Submit">
+    </form>
+</body>
+
+</html>

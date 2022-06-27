@@ -1,6 +1,11 @@
-from django.http import HttpResponse
+from django.http import Http404, HttpResponse
 from django.shortcuts import render
 
 # Create your views here.
 def index(request):
     return HttpResponse("Welcome to Django.<br>Again.")
+
+def name(request, name):
+    if name == 'Russia':
+        raise Http404('Fuck Russia')
+    return render(request,'name.html', {'name': name})
