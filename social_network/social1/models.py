@@ -11,3 +11,11 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+class Like(models.Model):
+    user = models.ForeignKey(User, on_delete=models.SET(0))
+    create = models.DateTimeField(auto_now_add=True)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+
+    def __str__(self) -> str:
+        return f"'{self.post.title}': liked by '{self.user.username}'"
