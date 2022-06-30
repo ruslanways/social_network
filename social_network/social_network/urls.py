@@ -15,8 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from social1.views import UsersAPIView
 
 urlpatterns = [
-    path('', include('social1.urls')),
     path('admin/', admin.site.urls),
+    path('', include('social1.urls')),
+    path('api/v1/users/', UsersAPIView.as_view()),
 ]
