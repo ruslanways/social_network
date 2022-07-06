@@ -1,3 +1,4 @@
+from django.views.generic import ListView, DetailView
 from django.http import Http404, HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
@@ -5,6 +6,8 @@ from rest_framework import generics
 from django.contrib.auth.models import User
 from .forms import FileUploadForm, LoginUserForm
 from .serializers import UserSerializer
+from .models import Post
+from django.views.generic.edit import CreateView
 
 def name(request, name):
     if name == 'Russia':
@@ -45,3 +48,15 @@ def upload_file(request):
     else:
         form = FileUploadForm()
     return render(request, 'social1/upload.html', {'form': form})
+
+
+class PostListView(ListView):
+    model = Post
+
+class PostDetailView(DetailView):
+    model = Post
+
+class PostCreateView(CreateView):
+    model = Post
+    fields = '__all__'
+    success_url = '/'
