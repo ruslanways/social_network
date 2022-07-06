@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.urls import reverse
 from rest_framework import generics
 from django.contrib.auth.models import User
-from .forms import LoginUserForm
+from .forms import FileUploadForm, LoginUserForm
 from .serializers import UserSerializer
 
 def name(request, name):
@@ -29,3 +29,19 @@ def index(request):
     else:
         form = LoginUserForm()
     return render(request, 'social1/form.html', {'form': form})
+
+
+def handle_uploaded_file(f):
+    with open('social1/newfile', 'wb+') as destination:
+        for chunk in f.chunks():
+            destination.write(chunk)
+
+def upload_file(request):
+    if request.method == 'POST':
+        form = FileUploadForm(request.POST, request.FILES)
+        if form.is_valid():
+            handle_uploaded_file(request.FILES['file'])
+            return HttpResponseRedirect(reverse('name', args=(f"File '{form.cleaned_data['title']}' uploaded",)))
+    else:
+        form = FileUploadForm()
+    return render(request, 'social1/upload.html', {'form': form})

@@ -15,8 +15,14 @@ class LoginUserForm(forms.ModelForm):
         model = User
         fields = 'username', 'password'
     
+    # custom validator of filed password
     def clean_password(self):
         password = self.cleaned_data['password']
         if len(password) > 20:
             raise forms.ValidationError('Length of password is more than allowed 20 symbols')
         return password
+
+
+class FileUploadForm(forms.Form):
+    title = forms.CharField(max_length=30)
+    file = forms.FileField()
