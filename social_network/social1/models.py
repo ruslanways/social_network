@@ -12,6 +12,7 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
+
 class Like(models.Model):
     user = models.ForeignKey(User, on_delete=models.SET(0))
     create = models.DateTimeField(auto_now_add=True)

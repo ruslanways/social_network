@@ -20,9 +20,12 @@ def index(request):
     if request.method == 'POST':
         form = LoginUserForm(request.POST)
         if form.is_valid():
-            return HttpResponseRedirect(reverse('name', args=(request.POST['username'],)))
+            print(form.cleaned_data)
+            try:
+                form.save()
+                return HttpResponseRedirect(reverse('name', args=(form.cleaned_data['username'],)))
+            except:
+                form.add_error(None, 'Error addition user')
     else:
         form = LoginUserForm()
     return render(request, 'social1/form.html', {'form': form})
-
-
