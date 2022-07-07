@@ -1,6 +1,7 @@
 from dataclasses import fields
 from django import forms
 from django.contrib.auth.models import User
+from django.contrib.auth.password_validation import validate_password
 
 class LoginUserForm(forms.ModelForm):
 
@@ -18,8 +19,9 @@ class LoginUserForm(forms.ModelForm):
     # custom validator of filed password
     def clean_password(self):
         password = self.cleaned_data['password']
-        if len(password) > 20:
-            raise forms.ValidationError('Length of password is more than allowed 20 symbols')
+        validate_password(password, self.instance)
+        # if len(password) > 20:
+        #     raise forms.ValidationError('Length of password is more than allowed 20 symbols')
         return password
 
 

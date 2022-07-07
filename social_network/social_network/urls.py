@@ -22,4 +22,5 @@ urlpatterns = [
     path('', include('social1.urls')),
     path('api/v1/users/', UsersAPIView.as_view()),
     path('api/v1/auf/', include('rest_framework.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]
